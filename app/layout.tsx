@@ -6,6 +6,7 @@ import { ConvexClientProvider } from '@/providers/ConvexClientProvider'
 import { ClerkProvider } from '@clerk/nextjs'
 import Header from '@/components/header'
 import SyncUserWithConvex from '@/providers/SyncUserWithConvex'
+import { Toaster } from 'react-hot-toast'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -36,6 +37,19 @@ export default function RootLayout({
           <ConvexClientProvider>
             <Header />
             <SyncUserWithConvex />
+            <Toaster
+              position="top-right"
+              reverseOrder={false}
+              gutter={8}
+              containerClassName=""
+              containerStyle={{}}
+              toastOptions={{
+                // Define default options
+                className: '',
+                duration: 5000,
+                removeDelay: 1000,
+              }}
+            />
             {children}
           </ConvexClientProvider>
         </ClerkProvider>
